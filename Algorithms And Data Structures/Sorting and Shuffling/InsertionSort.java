@@ -1,9 +1,22 @@
+import java.util.Comparator;
+
 public class InsertionSort {
 
     public static void sort(Comparable[] a) {
         for (int i =0; i < a.length; i++) {
             for (int j = i; j > 0; j--) {
                 if (SortingTools.less(a[j], a[j-1]))
+                    SortingTools.exchange(a, j, j-1); //Exchange with every element higher to the left of j, until reach the correct spot
+                else
+                    break;
+            }
+        }
+    }
+
+    public static void sort(Object[] a, Comparator comp) {
+        for (int i =0; i < a.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (SortingTools.less(comp, a[j], a[j-1]))
                     SortingTools.exchange(a, j, j-1); //Exchange with every element higher to the left of j, until reach the correct spot
                 else
                     break;
@@ -18,6 +31,16 @@ public class InsertionSort {
         sort(test);
         for (int i : test)
             System.out.println(i);
+        */
+
+        /*
+        ComparatorTestClass[] test2 = new ComparatorTestClass[6];
+        ComparatorTestClass a = new ComparatorTestClass(5); test2[0] = a; ComparatorTestClass b = new ComparatorTestClass(1); test2[1] = b;
+        ComparatorTestClass c = new ComparatorTestClass(7); test2[2] = c; ComparatorTestClass d = new ComparatorTestClass(23); test2[3] = d;
+        ComparatorTestClass e = new ComparatorTestClass(2); test2[4] = e; ComparatorTestClass f = new ComparatorTestClass(9); test2[5] = f;
+        sort(test2, ComparatorTestClass.BY_AGE); System.out.print("\n");
+        for (ComparatorTestClass i : test2)
+            System.out.println(i.getAge());
         */
 
     }
