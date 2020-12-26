@@ -1,4 +1,4 @@
-Given a set of 2D points, find its convex hull, which is defined by the smallest convex set that contains every point.\
+Given a set of 2D points, find and draw its convex hull, which is defined by the smallest convex set that contains every point.\
 \
 I've implemented Graham Scan's algorithm to solve the problem, which consists in selecting the point with the lowest y value (lets call it lowYPoint),
 then sorting every point P by the polar angle between the line (0,1) and (lowYPoint, P), so that we scan everypoint starting from lowYPoint in a
@@ -8,5 +8,5 @@ the point at the front of the convex hull stack (last added) until P+1 gets adde
 \
 I've used my implementation of merge sort and my implementation of stacks (implemented with arrays) to solve this problem. \
 \
-To test the algorithm, the following points have been given and the Convex Hull has been found successfully.\
-![Image Alt-Text!](https://imgur.com/c1ZcVH8.png)
+To test the algorithm, the following points have been given, and the following result was obtained.\
+![Image Alt-Text!](https://imgur.com/c1ZcVH8.png) ![Image Alt-Text!](https://imgur.com/SZlCdba.png)

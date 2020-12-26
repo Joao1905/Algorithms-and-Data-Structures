@@ -1,4 +1,5 @@
 import packages.*;
+import packages.other.StdDraw;
 
 public class GrahamScan {
 
@@ -49,14 +50,31 @@ public class GrahamScan {
         for (int i = 0; i < size; i++) {
             returnArray[i] = convexHull.pop();
         }
+        
 
         return returnArray;
 
     }
 
+    public static void draw(Point[] setOfPoints, Point[] convexHull) {
+        for (int i = 0; i < setOfPoints.length; i++) {
+
+            StdDraw.point(setOfPoints[i].getX(), setOfPoints[i].getY());
+
+            if (i < convexHull.length && i > 0) 
+                StdDraw.line(convexHull[i-1].getX(), convexHull[i-1].getY(), convexHull[i].getX(), convexHull[i].getY());
+            else if (i == convexHull.length)
+                StdDraw.line(convexHull[0].getX(), convexHull[0].getY(), convexHull[i-1].getX(), convexHull[i-1].getY());
+        }
+    }
+
     public static void main (String[] args) {
 
-        /*
+        StdDraw.setCanvasSize(800, 800);
+        StdDraw.setXscale(0, 8);
+        StdDraw.setYscale(0, 8);
+        StdDraw.setPenRadius(0.01); StdDraw.setPenColor(StdDraw.DARK_GRAY);
+
         Point[] myPoints = new Point[13];
         Point p9 = new Point(0.6f, 2.8f); myPoints[0] = p9;     //Should be in Convex Hull
         Point p2 = new Point(4.8f, 4.6f); myPoints[1] = p2;
@@ -73,9 +91,10 @@ public class GrahamScan {
         Point p8 = new Point(1.3f, 3.4f); myPoints[12] = p8;
 
         Point[] hull = scan(myPoints);
+        draw(myPoints, hull);
         for (Point i : hull)
             System.out.println(i.getName());
-        */
+        
 
     }
 
